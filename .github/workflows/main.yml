@@ -23,9 +23,12 @@ jobs:
     - name: Setup Pages
       uses: actions/configure-pages@v5
     - name: Run make4ht
-      uses: xu-cheng/texlive-action/full@v1
-      env:
-        command: 'make4ht -c config.cfg -ua debug -d out main.tex "fn-in"'
+      uses: xu-cheng/texlive-action@v3
+      with:
+        texlive_version: latest
+        scheme: full
+        run: |
+          make4ht -c config.cfg -ua debug -d out main.tex "fn-in"
     - name: List files
       run: tree .
     - name: Upload artifact
