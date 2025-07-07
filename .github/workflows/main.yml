@@ -29,7 +29,9 @@ jobs:
     - name: Upload artifact
       uses: actions/upload-pages-artifact@v3
       with:
-          path: ./out
+          path: './out'
+    - name: List files
+      run: tree .
       
   deploy:
     environment:
